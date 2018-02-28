@@ -8,6 +8,28 @@
 
 #import "ImageManager.h"
 
+@interface ImageManager()
+
+@property (strong, nonatomic) NSSet *subjectTagsSet;
+@property (strong, nonatomic) NSSet *locationSet;
+
+@property (strong, nonatomic) NSMutableArray <Image *> *imageArray;
+@property (strong, nonatomic) NSMutableArray *indexArray;
+
+@end
+
+
+
 @implementation ImageManager
+
+
+-(void)getSavedImages {
+    
+}
+
+
+-(void)getSavedImages: (NSArray *) imageArray GroupedBy: (groupType) groupType {
+    
+}
 
 @end

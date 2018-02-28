@@ -9,13 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "Image.h"
 
+
+typedef enum : NSUInteger {
+    location,
+    subject,
+} groupType;
+
 @interface ImageManager : NSObject
 
-@property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) NSSet *subjectTags;
-@property (strong, nonatomic) NSString *location;
+@property (copy, nonatomic) NSArray <UIImage *> *outputImageArray;
+@property (copy, nonatomic) NSArray <NSString *> *sectionsArray;
 
-@property (strong, nonatomic) NSMutableArray *indexArray;
-@property (strong, nonatomic) NSArray <UIImage *> *outputImageArray;
+
+-(void)getSavedImages;
+-(void)getSavedImages: (NSArray *) imageArray GroupedBy: (groupType) groupType;
+
 
 @end
