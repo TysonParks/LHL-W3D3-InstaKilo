@@ -6,8 +6,12 @@
 //  Copyright © 2018 Tyson Parks. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Image : NSObject
+
+@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSMutableSet *subjectTags;
+@property (strong, nonatomic) NSString *location;
 
 @end
