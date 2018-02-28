@@ -113,7 +113,7 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    int numberOfImages = self.imageArray.count;
+    NSUInteger numberOfImages = self.imageArray.count;
     return numberOfImages;
 }
 
