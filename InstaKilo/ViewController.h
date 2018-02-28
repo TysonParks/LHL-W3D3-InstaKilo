@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoViewCell.h"
 
 @interface ViewController : UIViewController
 
