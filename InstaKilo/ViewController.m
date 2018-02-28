@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) NSMutableArray <Image *> *imageArray;
 
+@property (strong, nonatomic) UICollectionViewFlowLayout *simpleLayout;
+
 @end
 
 @implementation ViewController
@@ -21,8 +23,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Assign datasource
+    self.collectionView.dataSource = self;
     
-    // MARK: Initialize Image objects
+    [self setupImageObjectArray];
+    
+    [self setupSimpleLayout];
+
+    self.collectionView.collectionViewLayout = self.simpleLayout;
+    
+    
+}
+
+
+// MARK: Internal methods
+
+-(void)setupSimpleLayout {
+    self.simpleLayout = [[UICollectionViewFlowLayout alloc] init];
+    
+    self.simpleLayout.itemSize = CGSizeMake(100, 100); // Set size of cell
+    self.simpleLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);  // Padding around each section
+    self.simpleLayout.minimumInteritemSpacing = 15;  // Minimum horizontal spacing between cells
+    self.simpleLayout.minimumLineSpacing = 10;  // Minimum vertical spacing
+    
+    // By default, direction is vertical
+    self.simpleLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    // Add this line so headers will appear. If this line is not present, headers will not appear
+//    self.simpleLayout.headerReferenceSize = CGSizeMake(50, self.collectionView.frame.size.height);
+    
+    // Add this line so footers will appear. If this line is not present, footers will not appear
+//    self.simpleLayout.footerReferenceSize = CGSizeMake(30, self.collectionView.frame.size.height);
+}
+
+-(void)setupImageObjectArray {
+    // MARK: -Initialize Image objects
     Image *pict0 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-0"] Tags:[NSSet setWithObjects:@"robot", @"athlete", nil] andLocation:@"Pyeongchang"];
     
     Image *pict1 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-1"] Tags:[NSSet setWithObjects:@"robot", @"fashion", nil] andLocation:@"New York City"];
@@ -32,23 +67,20 @@
     Image *pict3 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-3"] Tags:[NSSet setWithObjects:@"dog", @"fashion", nil] andLocation:@"Cambodia"];
     
     Image *pict4 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-4"] Tags:[NSSet setWithObjects:@"mountain", @"cloud", @"landscape", nil] andLocation:@"Seattle"];
-
+    
     Image *pict5 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-5"] Tags:[NSSet setWithObjects:@"sports", @"athlete", nil] andLocation:@"Pyeongchang"];
     
     Image *pict6 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-6"] Tags:[NSSet setWithObjects:@"sports", @"athlete", nil] andLocation:@"Pyeongchang"];
     
-    Image *pict7 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-7"] Tags:[NSSet setWithObjects:@"sports", @"athlete", @"bobsled" nil] andLocation:@"Maine"];
+    Image *pict7 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-7"] Tags:[NSSet setWithObjects:@"sports", @"athlete", @"bobsled", nil] andLocation:@"Maine"];
     
-    Image *pict8 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-8"] Tags:[NSSet setWithObjects:@"sports", @"athlete", @"bobsled" nil] andLocation:@"Pyeongchang"];
+    Image *pict8 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-8"] Tags:[NSSet setWithObjects:@"sports", @"athlete", @"bobsled", nil] andLocation:@"Pyeongchang"];
     
     Image *pict9 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-9"] Tags:[NSSet setWithObjects:@"animal", @"monkey", nil] andLocation:@"Peru"];
     
     // Put Image objects in array
     self.imageArray = [[NSMutableArray alloc] initWithObjects:pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, nil];
-    
-    
 }
-
 
 
 
