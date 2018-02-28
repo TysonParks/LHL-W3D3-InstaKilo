@@ -41,7 +41,9 @@
 -(void)setupSimpleLayout {
     self.simpleLayout = [[UICollectionViewFlowLayout alloc] init];
     
-    self.simpleLayout.itemSize = CGSizeMake(160, 160); // Set size of cell
+    self.simpleLayout.itemSize = CGSizeMake(165, 120); // Set size of cell
+//    self.simpleLayout.estimatedItemSize = CGSizeMake(160, 160); // Set size of cell
+//    self.simpleLayout.itemSize = UICollectionViewFlowLayoutAutomaticSize;
     self.simpleLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);  // Padding around each section
     self.simpleLayout.minimumInteritemSpacing = 15;  // Minimum horizontal spacing between cells
     self.simpleLayout.minimumLineSpacing = 10;  // Minimum vertical spacing
@@ -79,7 +81,7 @@
     Image *pict9 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-9"] Tags:[NSSet setWithObjects:@"animal", @"monkey", nil] andLocation:@"Peru"];
     
     // Put Image objects in array
-    self.imageArray = [[NSMutableArray alloc] initWithObjects:pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, nil];
+    self.imageArray = [[NSMutableArray alloc] initWithObjects:pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, nil];
 }
 
 
@@ -111,8 +113,8 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    
-    return 10;
+    int numberOfImages = self.imageArray.count;
+    return numberOfImages;
 }
 
 
