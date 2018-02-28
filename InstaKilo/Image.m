@@ -10,6 +10,18 @@
 
 @implementation Image
 
+-(instancetype)initWithImage:(UIImage *)image Tags:(NSSet *) subjectTags andLocation:(NSString *)location {
+    self = [super init];
+    if (self) {
+        _image = image;
+        _subjectTags = subjectTags;
+        _location = location;
+    }
+    return self;
+    
+    
+}
+
 
 
 

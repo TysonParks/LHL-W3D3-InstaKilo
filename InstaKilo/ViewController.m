@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-
+@property (strong, nonatomic) NSMutableArray <Image *> *imageArray;
 
 @end
 
@@ -21,6 +21,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    Image *pict1 = []
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    self.imageArray = [[NSMutableArray alloc] init]; // Use initWith after making objects
+    
+    
 }
 
 

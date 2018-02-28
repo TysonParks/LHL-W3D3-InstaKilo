@@ -11,7 +11,10 @@
 @interface Image : NSObject
 
 @property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) NSMutableSet *subjectTags;
+@property (strong, nonatomic) NSSet *subjectTags;
 @property (strong, nonatomic) NSString *location;
+
+
+-(instancetype)initWithImage: (UIImage *)image Tags: (NSSet *) subjectTags andLocation: (NSString *)location;
 
 @end
