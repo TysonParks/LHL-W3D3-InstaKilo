@@ -46,6 +46,9 @@
                                             <constraint firstAttribute="trailing" secondItem="xJP-d2-ceF" secondAttribute="trailing" id="Gml-Fr-zcS"/>
                                             <constraint firstItem="xJP-d2-ceF" firstAttribute="top" secondItem="JLu-1K-Ceq" secondAttribute="top" id="JIT-Gw-WYe"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="photoCellImageView" destination="xJP-d2-ceF" id="SZH-Ch-nXf"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="f5h-JI-zxI">
