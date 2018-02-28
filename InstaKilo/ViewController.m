@@ -41,13 +41,13 @@
 -(void)setupSimpleLayout {
     self.simpleLayout = [[UICollectionViewFlowLayout alloc] init];
     
-    self.simpleLayout.itemSize = CGSizeMake(100, 100); // Set size of cell
+    self.simpleLayout.itemSize = CGSizeMake(160, 160); // Set size of cell
     self.simpleLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);  // Padding around each section
     self.simpleLayout.minimumInteritemSpacing = 15;  // Minimum horizontal spacing between cells
     self.simpleLayout.minimumLineSpacing = 10;  // Minimum vertical spacing
     
     // By default, direction is vertical
-    self.simpleLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.simpleLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
     // Add this line so headers will appear. If this line is not present, headers will not appear
 //    self.simpleLayout.headerReferenceSize = CGSizeMake(50, self.collectionView.frame.size.height);
