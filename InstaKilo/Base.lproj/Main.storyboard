@@ -34,7 +34,18 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJP-d2-ceF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="xJP-d2-ceF" secondAttribute="bottom" id="5OY-c2-vNf"/>
+                                            <constraint firstItem="xJP-d2-ceF" firstAttribute="leading" secondItem="JLu-1K-Ceq" secondAttribute="leading" id="7Jy-mH-rUZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="xJP-d2-ceF" secondAttribute="trailing" id="Gml-Fr-zcS"/>
+                                            <constraint firstItem="xJP-d2-ceF" firstAttribute="top" secondItem="JLu-1K-Ceq" secondAttribute="top" id="JIT-Gw-WYe"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="f5h-JI-zxI">
