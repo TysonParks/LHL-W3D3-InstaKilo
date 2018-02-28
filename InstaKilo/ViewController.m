@@ -102,6 +102,9 @@
     PhotoViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
     
+    cell.photoCellImageView.image = [self.imageArray objectAtIndex:(long)indexPath.row].image;
+    
+    
     
     return cell;
 }
