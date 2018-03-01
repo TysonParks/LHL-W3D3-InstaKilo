@@ -6,7 +6,7 @@
 //  Copyright © 2018 Tyson Parks. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "Image.h"
 
 
@@ -17,11 +17,12 @@ typedef enum : NSUInteger {
 
 @interface ImageManager : NSObject
 
+// MARK: Public Properties
 @property (copy, nonatomic, readonly) NSMutableArray <UIImage *> *outputImagesArray;
 @property (copy, nonatomic, readonly) NSMutableArray <NSArray *> *sectionsImagesArray;
-@property (copy, nonatomic, readonly) NSArray <NSString *> *sectionsNamesArray;
+@property (copy, nonatomic, readonly) NSMutableArray <NSString *> *sectionsNamesArray;
 
-
+// MARK: Public Methods
 -(void)getSavedImages;
 -(void)getSavedImagesGroupedBy: (groupType) groupType;
 

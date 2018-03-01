@@ -1,4 +1,4 @@
-//
+[//
 //  ImageManager.m
 //  InstaKilo
 //
@@ -52,7 +52,6 @@
 
 -(void)getSavedImagesGroupedBy: (groupType) groupType {
     [self setupInitialImageObjectSet];
-    
     [self initializeGroupingArrays];
     
     if (groupType == location) {
@@ -67,8 +66,11 @@
         //        }
         
     } else {
-        
         [self setupSubjectTagsGroupingSet];
+        self.sectionsNamesArray = [NSArray arrayWithArray:[self.subjectTagsSet allObjects]];
+        self.sectionsNamesArray = [self.sectionsNamesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+        NSLog(@"Set: %@", self.sectionsNamesArray);
+
     }
 }
 
