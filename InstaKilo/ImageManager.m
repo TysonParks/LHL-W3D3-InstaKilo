@@ -39,27 +39,32 @@
 
 // MARK: Public Methods
 -(void)getSavedImages {
-//    if (!self.initialImageArray) {
-//        [self setupImageObjectArray];
-//    }
     for (int i = 0; i < self.initialImageArray.count; i++) {
          [self.outputImageArray insertObject:(self.initialImageArray[i].image) atIndex:i];
     }
-    
 }
 
 
 -(void)getSavedImages: (NSArray *) imageArray GroupedBy: (groupType) groupType {
-    
+    [self setupGroupingSets];
+    if (groupType == location) {
+        <#statements#>
+    } else {
+        
+    }
 }
 
 
 
 
 // MARK: Private Methods
-
-
-
+-(void)setupGroupingSets {
+    self.indexArray = [[NSMutableArray alloc]init];
+    self.sectionsArray = [[NSMutableArray alloc]init];
+    self.locationSet = [[NSSet alloc]init];
+    self.subjectTagsSet = [[NSSet alloc]init];
+    
+}
 
 -(void)setupImageObjectArray {
     // MARK: -Initialize Image objects
