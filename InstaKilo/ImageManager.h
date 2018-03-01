@@ -22,7 +22,7 @@ typedef enum : NSUInteger {
 
 
 -(void)getSavedImages;
--(void)getSavedImages: (NSArray *) imageArray GroupedBy: (groupType) groupType;
+-(void)getSavedImagesGroupedBy: (groupType) groupType;
 
 
 @end

@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSMutableSet <NSString *> *subjectTagsSet;
 @property (strong, nonatomic) NSMutableSet <NSString *> *locationSet;
+@property (strong, nonatomic) NSMutableSet <Image *> *initialImageObjectSet;
 
 @property (strong, nonatomic) NSMutableArray <Image *> *initialImageObjectArray;
 @property (copy, nonatomic, readwrite) NSMutableArray <UIImage *> *outputImageArray;
@@ -46,7 +47,7 @@
 }
 
 
--(void)getSavedImages: (NSArray *) imageArray GroupedBy: (groupType) groupType {
+-(void)getSavedImagesGroupedBy: (groupType) groupType {
     [self initializeGroupingSets];
     if (groupType == location) {
         [self setupLocationGroupingSet];
@@ -63,17 +64,17 @@
 -(void)initializeGroupingSets {
     self.indexArray = [[NSMutableArray alloc]init];
     self.sectionsArray = [[NSMutableArray alloc]init];
-    self.locationSet = [[NSMutableSet alloc]init];
-    self.subjectTagsSet = [[NSMutableSet alloc]init];
 }
 
 -(void)setupLocationGroupingSet {
+    self.locationSet = [[NSMutableSet alloc]init];
     for (int i = 0; i < self.initialImageObjectArray.count; i++) {
         [self.locationSet addObject:self.initialImageObjectArray[i].location];
     }
 }
 
 -(void)setupSubjectTagsGroupingSet {
+    self.subjectTagsSet = [[NSMutableSet alloc]init];
     for (int i = 0; i < self.initialImageObjectArray.count; i++) {
             [self.subjectTagsSet setByAddingObjectsFromSet:self.initialImageObjectArray[i].subjectTags];
     }

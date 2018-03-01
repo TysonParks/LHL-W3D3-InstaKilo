@@ -46,10 +46,16 @@
     
 }
 
-
+// MARK: Sorting Action Methods
 - (IBAction)locationButton:(id)sender {
+    // Sort images by location
+    [self.imageManager getSavedImagesGroupedBy:location];
 }
+
+
 - (IBAction)subjectButton:(id)sender {
+    // Sort images by subject
+    [self.imageManager getSavedImagesGroupedBy:subject];
 }
 
 
