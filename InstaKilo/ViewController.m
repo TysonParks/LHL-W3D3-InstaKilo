@@ -15,11 +15,13 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (strong, nonatomic) NSArray <UIImage *> *imageArray;
 
+
+@property (strong, nonatomic) NSArray <UIImage *> *imageArray;
+@property (strong, nonatomic) ImageManager *imageManager;
 @property (strong, nonatomic) UICollectionViewFlowLayout *simpleLayout;
 
-@property (strong, nonatomic) ImageManager *imageManager;
+
 
 @end
 
@@ -43,6 +45,13 @@
     
     
 }
+
+
+- (IBAction)locationButton:(id)sender {
+}
+- (IBAction)subjectButton:(id)sender {
+}
+
 
 
 // MARK: Internal methods
