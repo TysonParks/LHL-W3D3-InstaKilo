@@ -16,7 +16,8 @@
 @property (strong, nonatomic) NSMutableSet <NSString *> *locationSet;
 @property (strong, nonatomic) NSMutableSet <Image *> *initialImageObjectSet;
 // Output Arrays
-@property (copy, nonatomic, readwrite) NSMutableArray *outputImageArray;
+@property (copy, nonatomic, readwrite) NSMutableArray <UIImage *> *outputImagesArray;
+@property (copy, nonatomic, readwrite) NSMutableArray <NSArray *> *sectionsImagesArray;
 @property (copy, nonatomic, readwrite) NSMutableArray <NSString *> *sectionsNamesArray;
 
 
@@ -34,7 +35,7 @@
     if (self) {
         
         [self setupImageObjectArray];
-        _outputImageArray = [NSMutableArray new];
+        _outputImagesArray = [NSMutableArray new];
     }
     return self;
 }
@@ -44,7 +45,7 @@
 // MARK: Public Methods
 -(void)getSavedImages {
     for (int i = 0; i < self.initialImageObjectArray.count; i++) {
-         [self.outputImageArray insertObject:(self.initialImageObjectArray[i].image) atIndex:i];
+         [self.outputImagesArray insertObject:(self.initialImageObjectArray[i].image) atIndex:i];
     }
 }
 

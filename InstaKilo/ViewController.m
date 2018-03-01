@@ -37,7 +37,7 @@
     // Instantiate the ImageManager and get
     self.imageManager = [[ImageManager alloc]init];
     [self.imageManager getSavedImages];
-    self.imageArray =  self.imageManager.outputImageArray;
+    self.imageArray =  self.imageManager.outputImagesArray;
     
     [self setupSimpleLayout];
     
@@ -99,8 +99,8 @@
 // Format the amount of rows per section
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     NSUInteger numberOfImages;
-    for (int i = 0; i < self.imageManager.sectionsArray.count; i++) {
-        numberOfImages = self.imageManager.sectionsArray[i].count;
+    for (int i = 0; i < self.imageManager.outputImagesArray.count; i++) {
+        numberOfImages = self.imageManager.outputImagesArray[i].count;
     }
     
     
