@@ -74,9 +74,12 @@
 
 -(void)setupSubjectTagsGroupingSet {
     for (int i = 0; i < self.initialImageObjectArray.count; i++) {
-        [self.locationSet addObject:self.initialImageObjectArray[i].location];
+            [self.subjectTagsSet setByAddingObjectsFromSet:self.initialImageObjectArray[i].subjectTags];
     }
 }
+
+
+
 
 -(void)setupImageObjectArray {
     // MARK: -Initialize Image objects
