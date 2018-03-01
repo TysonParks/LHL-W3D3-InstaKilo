@@ -10,10 +10,10 @@
 
 @interface ImageManager()
 
-@property (strong, nonatomic) NSSet *subjectTagsSet;
-@property (strong, nonatomic) NSSet *locationSet;
+@property (strong, nonatomic) NSMutableSet <NSString *> *subjectTagsSet;
+@property (strong, nonatomic) NSMutableSet <NSString *> *locationSet;
 
-@property (strong, nonatomic) NSMutableArray <Image *> *initialImageArray;
+@property (strong, nonatomic) NSMutableArray <Image *> *initialImageObjectArray;
 @property (copy, nonatomic, readwrite) NSMutableArray <UIImage *> *outputImageArray;
 @property (strong, nonatomic) NSMutableArray *indexArray;
 
@@ -39,16 +39,17 @@
 
 // MARK: Public Methods
 -(void)getSavedImages {
-    for (int i = 0; i < self.initialImageArray.count; i++) {
-         [self.outputImageArray insertObject:(self.initialImageArray[i].image) atIndex:i];
+    for (int i = 0; i < self.initialImageObjectArray.count; i++) {
+         [self.outputImageArray insertObject:(self.initialImageObjectArray[i].image) atIndex:i];
     }
 }
 
 
 -(void)getSavedImages: (NSArray *) imageArray GroupedBy: (groupType) groupType {
-    [self setupGroupingSets];
+    [self initializeGroupingSets];
     if (groupType == location) {
-        <#statements#>
+        [self setupLocationGroupingSet];
+        
     } else {
         
     }
@@ -58,12 +59,23 @@
 
 
 // MARK: Private Methods
--(void)setupGroupingSets {
+-(void)initializeGroupingSets {
     self.indexArray = [[NSMutableArray alloc]init];
     self.sectionsArray = [[NSMutableArray alloc]init];
-    self.locationSet = [[NSSet alloc]init];
-    self.subjectTagsSet = [[NSSet alloc]init];
-    
+    self.locationSet = [[NSMutableSet alloc]init];
+    self.subjectTagsSet = [[NSMutableSet alloc]init];
+}
+
+-(void)setupLocationGroupingSet {
+    for (int i = 0; i < self.initialImageObjectArray.count; i++) {
+        [self.locationSet addObject:self.initialImageObjectArray[i].location];
+    }
+}
+
+-(void)setupSubjectTagsGroupingSet {
+    for (int i = 0; i < self.initialImageObjectArray.count; i++) {
+        [self.locationSet addObject:self.initialImageObjectArray[i].location];
+    }
 }
 
 -(void)setupImageObjectArray {
@@ -89,7 +101,7 @@
     Image *pict9 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-9"] Tags:[NSSet setWithObjects:@"animal", @"monkey", nil] andLocation:@"Peru"];
     
     // Put Image objects in array
-    self.initialImageArray = [[NSMutableArray alloc] initWithObjects:pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, nil];
+    self.initialImageObjectArray = [[NSMutableArray alloc] initWithObjects:pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, pict0, pict1, pict2, pict3, pict4, pict5, pict6, pict7, pict8, pict9, nil];
 }
 
 
