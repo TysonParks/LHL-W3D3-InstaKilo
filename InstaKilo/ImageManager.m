@@ -11,6 +11,7 @@
 @interface ImageManager()
 // Initial Image Object Array
 @property (strong, nonatomic) NSMutableArray <Image *> *initialImageObjectArray;
+@property (strong, nonatomic) NSArray <Image *> *uniqueImageObjectArray;
 // Internal Sets
 @property (strong, nonatomic) NSMutableSet <NSString *> *subjectTagsSet;
 @property (strong, nonatomic) NSMutableSet <NSString *> *locationSet;
@@ -35,7 +36,7 @@
     if (self) {
         
         [self setupInitialImageObjectArray];
-        _outputImagesArray = [NSMutableArray alloc]init];
+        _outputImagesArray = [NSMutableArray new];
     }
     return self;
 }
@@ -57,12 +58,10 @@
     
     if (groupType == location) {
         [self getSavedImagesGroupedByLocation];
-        
     } else {
         [self getSavedImagesGroupedBySubject];
     }
 }
-
 
 
 
@@ -90,14 +89,20 @@
     [self setupLocationGroupingSet];
     self.sectionsNamesArray = [NSMutableArray arrayWithArray:[self.locationSet allObjects]];
     self.sectionsNamesArray = [self.sectionsNamesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    NSLog(@"Set: %@", self.sectionsNamesArray);
+    //    NSLog(@"Set: %@", self.sectionsNamesArray);
     
-    
-    //        for (int i = 0; i < self.locationSet.count; i++) {
-    //            if(self.initialImageObjectArray[i].location isEqualToString:self.sectionsNamesArray[i]) {
-    //                [self.sectionsImagesArray ];
-    //        }
+    NSArray *tempArray = [[NSArray alloc]init];
+    for (int i = 0; i < self.sectionsNamesArray.count; i++) {
+        for (int j = 0; j < self.uniqueImageObjectArray.count; j++) {
+            if ([self.sectionsNamesArray[i] isEqualToString:self.uniqueImageObjectArray[j].location])
+            {
+                tempArray = [tempArray arrayByAddingObject:self.uniqueImageObjectArray[j].image];
+            }
+            [self.sectionsImagesArray insertObject:tempArray atIndex:i];
+        }
+    }
 }
+             
 
 -(void)getSavedImagesGroupedBySubject {
     [self setupSubjectTagsGroupingSet];
@@ -145,6 +150,7 @@
 
 -(void)setupInitialImageObjectSet {
     self.initialImageObjectSet = [NSMutableSet setWithArray:self.initialImageObjectArray];
+    self.uniqueImageObjectArray = [NSArray arrayWithArray:self.initialImageObjectSet.allObjects];
 }
 
 @end
