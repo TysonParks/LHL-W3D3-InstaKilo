@@ -35,7 +35,7 @@
     if (self) {
         
         [self setupInitialImageObjectArray];
-        _outputImagesArray = [NSMutableArray new];
+        _outputImagesArray = [NSMutableArray alloc]init];
     }
     return self;
 }
@@ -53,24 +53,13 @@
 -(void)getSavedImagesGroupedBy: (groupType) groupType {
     [self setupInitialImageObjectSet];
     [self initializeGroupingArrays];
+    self.sectionsImagesArray = [[NSMutableArray alloc]init];
     
     if (groupType == location) {
-        [self setupLocationGroupingSet];
-        self.sectionsNamesArray = [NSMutableArray arrayWithArray:[self.locationSet allObjects]];
-        self.sectionsNamesArray = [self.sectionsNamesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        NSLog(@"Set: %@", self.sectionsNamesArray);
-        
-        
-        //        for (int i = 0; i < self.locationSet.count; i++) {
-        //            <#statements#>
-        //        }
+        [self getSavedImagesGroupedByLocation];
         
     } else {
-        [self setupSubjectTagsGroupingSet];
-        self.sectionsNamesArray = [NSMutableArray arrayWithArray:[self.subjectTagsSet allObjects]];
-        self.sectionsNamesArray = [self.sectionsNamesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        NSLog(@"Set: %@", self.sectionsNamesArray);
-
+        [self getSavedImagesGroupedBySubject];
     }
 }
 
@@ -96,6 +85,34 @@
         [self.subjectTagsSet addObjectsFromArray:self.initialImageObjectArray[i].subjectTags.allObjects];
     }
 }
+
+-(void)getSavedImagesGroupedByLocation {
+    [self setupLocationGroupingSet];
+    self.sectionsNamesArray = [NSMutableArray arrayWithArray:[self.locationSet allObjects]];
+    self.sectionsNamesArray = [self.sectionsNamesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSLog(@"Set: %@", self.sectionsNamesArray);
+    
+    
+    //        for (int i = 0; i < self.locationSet.count; i++) {
+    //            if(self.initialImageObjectArray[i].location isEqualToString:self.sectionsNamesArray[i]) {
+    //                [self.sectionsImagesArray ];
+    //        }
+}
+
+-(void)getSavedImagesGroupedBySubject {
+    [self setupSubjectTagsGroupingSet];
+    self.sectionsNamesArray = [NSMutableArray arrayWithArray:[self.subjectTagsSet allObjects]];
+    self.sectionsNamesArray = [self.sectionsNamesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    NSLog(@"Set: %@", self.sectionsNamesArray);
+    
+    
+    //        for (int i = 0; i < self.locationSet.count; i++) {
+    //            if(self.initialImageObjectArray[i].location isEqualToString:self.sectionsNamesArray[i]) {
+    //                [self.sectionsImagesArray ];
+    //        }
+}
+
+
 
 
 // MARK: Initialization Methods
