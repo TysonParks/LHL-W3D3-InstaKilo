@@ -92,15 +92,18 @@
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     
-    NSUInteger numberOfSections = self.imageManager.sectionsArray.count;
+    NSUInteger numberOfSections = self.imageManager.outputImagesArray.count;
+//    numberOfSections = self.imageManager.sectionsImagesArray.count;
     return numberOfSections;
 }
 
 // Format the amount of rows per section
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSUInteger numberOfImages;
-    for (int i = 0; i < self.imageManager.outputImagesArray.count; i++) {
-        numberOfImages = self.imageManager.outputImagesArray[i].count;
+    NSUInteger numberOfImages = self.imageManager.outputImagesArray.count;
+    
+    
+    for (int i = 0; i < self.imageManager.sectionsImagesArray.count; i++) {
+        numberOfImages = self.imageManager.sectionsImagesArray[i].count;
     }
     
     

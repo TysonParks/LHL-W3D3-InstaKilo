@@ -19,7 +19,7 @@ typedef enum : NSUInteger {
 
 @property (copy, nonatomic, readonly) NSMutableArray <UIImage *> *outputImagesArray;
 @property (copy, nonatomic, readonly) NSMutableArray <NSArray *> *sectionsImagesArray;
-@property (copy, nonatomic, readonly) NSMutableArray <NSString *> *sectionsNamesArray;
+@property (copy, nonatomic, readonly) NSArray <NSString *> *sectionsNamesArray;
 
 
 -(void)getSavedImages;
