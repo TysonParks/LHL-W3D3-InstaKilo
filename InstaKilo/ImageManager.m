@@ -1,4 +1,4 @@
-[//
+//
 //  ImageManager.m
 //  InstaKilo
 //
@@ -16,9 +16,9 @@
 @property (strong, nonatomic) NSMutableSet <NSString *> *locationSet;
 @property (strong, nonatomic) NSMutableSet <Image *> *initialImageObjectSet;
 // Output Arrays
-@property (copy, nonatomic, readwrite) NSMutableArray <UIImage *> *outputImagesArray;
-@property (copy, nonatomic, readwrite) NSMutableArray <NSArray *> *sectionsImagesArray;
-@property (copy, nonatomic, readwrite) NSArray <NSString *> *sectionsNamesArray;
+//@property (copy, nonatomic) NSMutableArray <UIImage *> *outputImagesArray;
+//@property (copy, nonatomic) NSMutableArray <NSArray *> *sectionsImagesArray;
+//@property (copy, nonatomic) NSArray <NSString *> *sectionsNamesArray;
 
 
 
@@ -56,7 +56,7 @@
     
     if (groupType == location) {
         [self setupLocationGroupingSet];
-        self.sectionsNamesArray = [NSArray arrayWithArray:[self.locationSet allObjects]];
+        self.sectionsNamesArray = [NSMutableArray arrayWithArray:[self.locationSet allObjects]];
         self.sectionsNamesArray = [self.sectionsNamesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         NSLog(@"Set: %@", self.sectionsNamesArray);
         
@@ -67,7 +67,7 @@
         
     } else {
         [self setupSubjectTagsGroupingSet];
-        self.sectionsNamesArray = [NSArray arrayWithArray:[self.subjectTagsSet allObjects]];
+        self.sectionsNamesArray = [NSMutableArray arrayWithArray:[self.subjectTagsSet allObjects]];
         self.sectionsNamesArray = [self.sectionsNamesArray sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
         NSLog(@"Set: %@", self.sectionsNamesArray);
 
@@ -93,7 +93,7 @@
 -(void)setupSubjectTagsGroupingSet {
     self.subjectTagsSet = [[NSMutableSet alloc]init];
     for (int i = 0; i < self.initialImageObjectArray.count; i++) {
-        [self.subjectTagsSet setByAddingObjectsFromSet:self.initialImageObjectArray[i].subjectTags];
+        [self.subjectTagsSet addObjectsFromArray:self.initialImageObjectArray[i].subjectTags.allObjects];
     }
 }
 

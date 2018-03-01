@@ -18,9 +18,9 @@ typedef enum : NSUInteger {
 @interface ImageManager : NSObject
 
 // MARK: Public Properties
-@property (copy, nonatomic, readonly) NSMutableArray <UIImage *> *outputImagesArray;
-@property (copy, nonatomic, readonly) NSMutableArray <NSArray *> *sectionsImagesArray;
-@property (copy, nonatomic, readonly) NSMutableArray <NSString *> *sectionsNamesArray;
+@property (copy, nonatomic) NSMutableArray <UIImage *> *outputImagesArray;
+@property (copy, nonatomic) NSMutableArray <NSArray *> *sectionsImagesArray;
+@property (copy, nonatomic) NSMutableArray <NSString *> *sectionsNamesArray;
 
 // MARK: Public Methods
 -(void)getSavedImages;
