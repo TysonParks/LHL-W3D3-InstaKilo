@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSMutableArray <Image *> *initialImageObjectArray;
 @property (copy, nonatomic, readwrite) NSMutableArray <UIImage *> *outputImageArray;
+@property (copy, nonatomic, readwrite) NSMutableArray <NSString *> *sectionsArray;
 @property (strong, nonatomic) NSMutableArray *indexArray;
 
 @end
@@ -51,7 +52,7 @@
         [self setupLocationGroupingSet];
         
     } else {
-        
+        [self setupSubjectTagsGroupingSet];
     }
 }
 
