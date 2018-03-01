@@ -9,15 +9,17 @@
 #import "ImageManager.h"
 
 @interface ImageManager()
-
+// Initial Image Object Array
+@property (strong, nonatomic) NSMutableArray <Image *> *initialImageObjectArray;
+// Internal Sets
 @property (strong, nonatomic) NSMutableSet <NSString *> *subjectTagsSet;
 @property (strong, nonatomic) NSMutableSet <NSString *> *locationSet;
 @property (strong, nonatomic) NSMutableSet <Image *> *initialImageObjectSet;
+// Output Arrays
+@property (copy, nonatomic, readwrite) NSMutableArray *outputImageArray;
+@property (copy, nonatomic, readwrite) NSMutableArray <NSString *> *sectionsNamesArray;
 
-@property (strong, nonatomic) NSMutableArray <Image *> *initialImageObjectArray;
-@property (copy, nonatomic, readwrite) NSMutableArray <UIImage *> *outputImageArray;
-@property (copy, nonatomic, readwrite) NSMutableArray <NSString *> *sectionsArray;
-@property (strong, nonatomic) NSMutableArray *indexArray;
+
 
 @end
 
@@ -62,8 +64,8 @@
 
 // MARK: Private Methods
 -(void)initializeGroupingSets {
-    self.indexArray = [[NSMutableArray alloc]init];
-    self.sectionsArray = [[NSMutableArray alloc]init];
+    self.sectionsNamesArray = [[NSMutableArray alloc]init];
+    self.sectionsImageArray = [[NSMutableArray alloc]init];
 }
 
 -(void)setupLocationGroupingSet {

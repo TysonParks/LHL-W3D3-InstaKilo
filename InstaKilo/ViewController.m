@@ -88,7 +88,7 @@
 
 // Required
 
-
+// Format the amount of Sections
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     
@@ -96,12 +96,20 @@
     return numberOfSections;
 }
 
+// Format the amount of rows per section
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSUInteger numberOfImages;
+    for (int i = 0; i < self.imageManager.sectionsArray.count; i++) {
+        numberOfImages = self.imageManager.sectionsArray[i].count;
+    }
     
-    NSUInteger numberOfImages = self.imageArray.count;
+    
+    
+//    NSUInteger numberOfImages = self.imageArray.count;
     return numberOfImages;
 }
 
+// Assign images to each cell based upon (section, row)
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     NSString *cellID = @"photoCell";
