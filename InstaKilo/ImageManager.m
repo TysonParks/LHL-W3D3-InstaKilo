@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSSet *locationSet;
 
 @property (strong, nonatomic) NSMutableArray <Image *> *initialImageArray;
-@property (strong, nonatomic, readwrite) NSArray <UIImage *> *outputImageArray;
+@property (copy, nonatomic, readwrite) NSMutableArray <UIImage *> *outputImageArray;
 @property (strong, nonatomic) NSMutableArray *indexArray;
 
 @end
@@ -28,7 +28,9 @@
 {
     self = [super init];
     if (self) {
+        
         [self setupImageObjectArray];
+        _outputImageArray = [NSMutableArray new];
     }
     return self;
 }
@@ -37,8 +39,11 @@
 
 // MARK: Public Methods
 -(void)getSavedImages {
+//    if (!self.initialImageArray) {
+//        [self setupImageObjectArray];
+//    }
     for (int i = 0; i < self.initialImageArray.count; i++) {
-        self.outputImageArray = [self.outputImageArray arrayByAddingObject:self.initialImageArray[i].image];
+         [self.outputImageArray insertObject:(self.initialImageArray[i].image) atIndex:i];
     }
     
 }
@@ -52,6 +57,10 @@
 
 
 // MARK: Private Methods
+
+
+
+
 -(void)setupImageObjectArray {
     // MARK: -Initialize Image objects
     Image *pict0 = [[Image alloc]initWithImage:[UIImage imageNamed:@"Pict-0"] Tags:[NSSet setWithObjects:@"robot", @"athlete", nil] andLocation:@"Pyeongchang"];
